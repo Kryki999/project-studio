@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Phone, Mail, MapPin, Menu, X } from "lucide-react"
+import { ArrowRight, Phone, Mail, MapPin, Menu, X, Facebook } from "lucide-react"
 import Link from "next/link"
 import ReviewsSection from "@/components/ReviewsSection"
 
@@ -20,103 +20,7 @@ export default function HomePage() {
   }, [])
   return (
     <div className="min-h-screen">
-      {/* Header */}
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${isScrolled || isMenuOpen
-          ? "bg-white/95 backdrop-blur-sm border-b border-gray-100"
-          : "bg-transparent"
-          }`}
-      >
-        <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div
-                className={`text-2xl font-bold transition-colors duration-300 ${isScrolled || isMenuOpen ? "text-gray-900" : "text-white"
-                  }`}
-              >
-                STUDIO ARCH
-              </div>
-            </div>
-
-            <div className="flex items-center space-x-3">
-
-              <nav className="hidden md:flex items-center space-x-8">
-                <Link
-                  href="#projects"
-                  className={`text-sm transition-colors ${isScrolled || isMenuOpen
-                    ? "text-gray-600 hover:text-gray-900"
-                    : "text-white/90 hover:text-white"
-                    }`}
-                >
-                  PROJECTS
-                </Link>
-                <Link
-                  href="#services"
-                  className={`text-sm transition-colors ${isScrolled || isMenuOpen
-                    ? "text-gray-600 hover:text-gray-900"
-                    : "text-white/90 hover:text-white"
-                    }`}
-                >
-                  SERVICES
-                </Link>
-                <Link
-                  href="#about"
-                  className={`text-sm transition-colors ${isScrolled || isMenuOpen
-                    ? "text-gray-600 hover:text-gray-900"
-                    : "text-white/90 hover:text-white"
-                    }`}
-                >
-                  ABOUT
-                </Link>
-              </nav>
-              <a href="tel:+15551234567" className="shrink-0">
-                <Button size="sm" className="bg-gray-900 text-white hover:bg-gray-800">
-                  <Phone className="h-4 w-4 mr-2" /> ZADZWOŃ
-                </Button>
-              </a>
-              <button
-                className={`md:hidden inline-flex items-center justify-center rounded-md p-2 focus:outline-none focus:ring-2 transition-colors ${isScrolled || isMenuOpen
-                  ? "text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:ring-gray-200"
-                  : "text-white hover:text-white/90 focus:ring-white/30"
-                  }`}
-                aria-label="Toggle menu"
-                onClick={() => setIsMenuOpen((prev) => !prev)}
-              >
-                {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile menu (drops below header, call button remains visible) */}
-        {isMenuOpen ? (
-          <div className="md:hidden border-t border-gray-200 bg-white">
-            <div className="max-w-7xl mx-auto px-6 py-4 space-y-4">
-              <a
-                href="#projects"
-                className="block text-gray-700 hover:text-gray-900"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                PROJECTS
-              </a>
-              <a
-                href="#services"
-                className="block text-gray-700 hover:text-gray-900"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                SERVICES
-              </a>
-              <a
-                href="#about"
-                className="block text-gray-700 hover:text-gray-900"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                ABOUT
-              </a>
-            </div>
-          </div>
-        ) : null}
-      </header>
+      {/* Header moved to global layout */}
 
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center">
@@ -130,16 +34,18 @@ export default function HomePage() {
         </div>
 
         <div className="relative z-10 text-center text-white max-w-2xl px-6">
-          <p className="text-sm tracking-widest mb-4 opacity-90">CREATING SPACES THAT INSPIRE</p>
-          <h1 className="text-5xl md:text-6xl font-light mb-6 leading-tight">Studio Arch</h1>
-          <p className="text-xl md:text-2xl font-light mb-8 opacity-90">House Project Agency</p>
+          <p className="text-sm tracking-widest mb-4 opacity-90">PROJEKTOWANIE I NADZÓR BUDOWLANY</p>
+          <h1 className="text-5xl md:text-6xl font-light mb-6 leading-tight">Graficad</h1>
+          <p className="text-xl md:text-2xl font-light mb-8 opacity-90">Piotr Mróz • Olsztyn</p>
           <Button
             variant="outline"
             size="lg"
             className="bg-transparent border-white text-white hover:bg-white hover:text-gray-900 transition-all duration-300"
           >
-            VIEW OUR PROJECTS
-            <ArrowRight className="ml-2 h-4 w-4" />
+            <a href="/projects" className="flex items-center">
+              ZOBACZ PROJEKTY
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </a>
           </Button>
         </div>
       </section>
@@ -149,19 +55,21 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-4xl font-light text-gray-900 mb-6">Architectural Excellence</h2>
+              <h2 className="text-4xl font-light text-gray-900 mb-6">O firmie Graficad</h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                We specialize in creating exceptional residential spaces that blend innovative design with functional
-                living. Our team of experienced architects and designers work closely with clients to bring their vision
-                to life.
+                Wychodząc naprzeciw oczekiwaniom naszych klientów, stworzyliśmy biuro, w którym w jednym miejscu można
+                zaprojektować i wycenić budynek według indywidualnych wymagań inwestora. Łączymy nowoczesne style
+                architektoniczne z klasycznymi formami oraz renowacjami obiektów zabytkowych.
               </p>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                From concept to completion, we handle every aspect of your house project with meticulous attention to
-                detail and unwavering commitment to quality.
+                Stosujemy najnowsze rozwiązania konstrukcyjne i architektoniczne. Wykonujemy kompleksowe kosztorysy
+                budowlane i instalacyjne oraz specjalistyczne audyty energetyczne.
               </p>
-              <Button variant="default" size="lg">
-                Learn More About Us
-              </Button>
+              <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+                <Button variant="default" size="lg">
+                  <Facebook className="h-4 w-4 mr-2" /> Odwiedź naszego Facebooka
+                </Button>
+              </a>
             </div>
             <div className="relative">
               <img
@@ -178,40 +86,40 @@ export default function HomePage() {
       <section id="services" className="py-24 bg-gray-50">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-light text-gray-900 mb-4">Our Services</h2>
+            <h2 className="text-4xl font-light text-gray-900 mb-4">Nasze usługi</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Comprehensive architectural services for residential projects of all scales
+              Projektowanie, nadzór budowlany, kosztorysy oraz audyty energetyczne
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Architectural Design</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Projektowanie architektoniczne</h3>
               <p className="text-gray-600 mb-6">
-                Complete architectural design services from initial concept through detailed construction drawings.
+                Koncepcje i dokumentacja projektowa z naciskiem na funkcjonalność i estetykę.
               </p>
               <Button variant="outline" size="sm">
-                Learn More
+                Dowiedz się więcej
               </Button>
             </div>
 
             <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Interior Planning</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Nadzór budowlany i kosztorysy</h3>
               <p className="text-gray-600 mb-6">
-                Thoughtful interior space planning that maximizes functionality and aesthetic appeal.
+                Prowadzenie inwestycji i kontrola jakości prac, rzetelne kosztorysy budowlane i instalacyjne.
               </p>
               <Button variant="outline" size="sm">
-                Learn More
+                Dowiedz się więcej
               </Button>
             </div>
 
             <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Project Management</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Audyty energetyczne i doradztwo</h3>
               <p className="text-gray-600 mb-6">
-                Full project management services ensuring your build stays on time and within budget.
+                Optymalizacja efektywności energetycznej i dobór nowoczesnych rozwiązań technicznych.
               </p>
               <Button variant="outline" size="sm">
-                Learn More
+                Dowiedz się więcej
               </Button>
             </div>
           </div>
@@ -222,9 +130,9 @@ export default function HomePage() {
       <section id="projects" className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-light text-gray-900 mb-4">Featured Projects</h2>
+            <h2 className="text-4xl font-light text-gray-900 mb-4">Wybrane realizacje</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              A selection of our recent residential projects showcasing our design philosophy
+              Przegląd projektów odzwierciedlających nasze podejście i standard wykonania
             </p>
           </div>
 
@@ -233,34 +141,36 @@ export default function HomePage() {
               <div className="relative overflow-hidden rounded-lg mb-4">
                 <img
                   src="/minimalist-house-exterior.png"
-                  alt="Modern House Project"
+                  alt="Minimalistyczny dom – realizacja Graficad"
                   className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Minimalist Family Home</h3>
-              <p className="text-gray-600">A contemporary family residence featuring clean lines and open spaces.</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Minimalistyczny dom rodzinny</h3>
+              <p className="text-gray-600">Współczesna forma, przejrzysty układ i funkcjonalne rozwiązania.</p>
             </div>
 
             <div className="group cursor-pointer">
               <div className="relative overflow-hidden rounded-lg mb-4">
                 <img
                   src="/luxury-modern-villa.png"
-                  alt="Luxury Villa Project"
+                  alt="Luksusowa willa – realizacja Graficad"
                   className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Luxury Garden Villa</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Luksusowa willa ogrodowa</h3>
               <p className="text-gray-600">
-                An elegant villa design that seamlessly integrates with its natural surroundings.
+                Elegancka bryła harmonijnie połączona z otoczeniem zieleni.
               </p>
             </div>
           </div>
 
           <div className="text-center mt-12">
-            <Button variant="default" size="lg">
-              View All Projects
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
+            <a href="/projects">
+              <Button variant="default" size="lg">
+                Zobacz wszystkie projekty
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </a>
           </div>
         </div>
       </section>
@@ -273,56 +183,52 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16">
             <div>
-              <h2 className="text-4xl font-light mb-6">Let's Create Something Amazing</h2>
+              <h2 className="text-4xl font-light mb-6">Porozmawiajmy o Twojej inwestycji</h2>
               <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-                Ready to start your house project? Get in touch with our team to discuss your vision and learn how we
-                can bring it to life.
+                Skontaktuj się z nami, aby omówić zakres prac i harmonogram. Odpowiemy na wszystkie pytania i doradzimy najlepsze rozwiązania.
               </p>
 
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <Phone className="h-5 w-5 text-gray-400" />
-                  <span className="text-gray-300">+1 (555) 123-4567</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Mail className="h-5 w-5 text-gray-400" />
-                  <span className="text-gray-300">hello@studioarch.com</span>
+                  <span className="text-gray-300">506 760 344</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <MapPin className="h-5 w-5 text-gray-400" />
-                  <span className="text-gray-300">123 Design Street, Architecture City</span>
+                  <span className="text-gray-300">Kołobrzeska 50/lok. 109, 10-434 Olsztyn</span>
                 </div>
+                <div className="text-sm text-gray-400">Godziny: Wkrótce zamknięcie · 16:00 · Otwarcie: wt., 07:00</div>
               </div>
             </div>
 
             <div className="bg-gray-800 p-8 rounded-lg">
               <form className="space-y-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">Name</label>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">Imię i nazwisko</label>
                   <input
                     type="text"
                     className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-white transition-colors"
-                    placeholder="Your full name"
+                    placeholder="Wpisz swoje imię i nazwisko"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">Email</label>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">E-mail</label>
                   <input
                     type="email"
                     className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-white transition-colors"
-                    placeholder="your@email.com"
+                    placeholder="twoj@email.com"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">Project Details</label>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">Opis inwestycji</label>
                   <textarea
                     rows={4}
                     className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-white transition-colors resize-none"
-                    placeholder="Tell us about your project..."
+                    placeholder="Opisz krótko zakres i oczekiwania..."
                   ></textarea>
                 </div>
                 <Button className="w-full bg-white text-gray-900 hover:bg-gray-100" size="lg">
-                  Send Message
+                  Wyślij wiadomość
                 </Button>
               </form>
             </div>
@@ -335,10 +241,10 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-3 mb-4 md:mb-0">
-              <div className="text-xl font-bold text-gray-900">STUDIO ARCH</div>
-              <div className="text-sm text-gray-500 border-l border-gray-300 pl-3">HOUSE PROJECT AGENCY</div>
+              <div className="text-xl font-bold text-gray-900">GRAFICAD</div>
+              <div className="text-sm text-gray-500 border-l border-gray-300 pl-3">PROJEKTOWANIE I NADZÓR BUDOWLANY</div>
             </div>
-            <div className="text-sm text-gray-500">© 2024 Studio Arch. All rights reserved.</div>
+            <div className="text-sm text-gray-500">© 2024 Graficad Piotr Mróz. Wszelkie prawa zastrzeżone.</div>
           </div>
         </div>
       </footer>

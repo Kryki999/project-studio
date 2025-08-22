@@ -13,38 +13,73 @@ type Review = {
 const reviews: Review[] = [
     {
         id: 1,
-        author: "Jan Kowalski",
+        author: "Sylwia Jędrzejczyk",
         rating: 5,
         text:
-            "Świetne miejsce! Atmosfera jest niesamowita, a obsługa bardzo profesjonalna. Na pewno wrócę!",
+            "Serdecznie polecam! Projekt domu został wykonany profesjonalnie, a cały proces przebiegł sprawnie. Dodatkowo, pozwolenie na budowę zostało załatwione w ekspresowym tempie. Świetna współpraca, fachowe doradztwo i pełne zaangażowanie. Dziękuję!",
     },
     {
         id: 2,
-        author: "Anna Nowak",
+        author: "Karol Olech",
         rating: 5,
         text:
-            "Najlepszy zespół, świetna komunikacja i perfekcyjna realizacja projektu od A do Z.",
+            "Pan Piotr stworzył wspaniały dom! Fantastyczne pomysły, doskonała funkcjonalność i przepiękny design. Polecam go wszystkim!",
     },
     {
         id: 3,
-        author: "Piotr Wiśniewski",
+        author: "Marcin Kłosowski",
         rating: 5,
         text:
-            "Bardzo dobra współpraca i świetne pomysły. Efekt końcowy przerósł nasze oczekiwania.",
+            "Gorąco polecam współpracę z Panem Piotrem i firmą Graficad. Pełen profesjonalizm, zaangażowanie i pomoc na każdym etapie budowy domu.",
     },
     {
         id: 4,
-        author: "Magdalena Kaczmarek",
+        author: "Nikola Wiercińska",
         rating: 5,
         text:
-            "Profesjonalne podejście i dbałość o detale. Gorąco polecam!",
+            "Wspaniała współpraca, nie mogliśmy lepiej trafić. Pan Piotr zawsze pomocny i zawsze staje na wysokości zadania. Szybkie, a przy tym profesjonalne załatwienie wszystkich spraw. Z czystym sumieniem polecam!",
     },
     {
         id: 5,
-        author: "Tomasz Zieliński",
+        author: "Wiktoria Kotowska-Sęk",
         rating: 5,
         text:
-            "Świetna komunikacja, terminowość i piękny projekt. Wszystko dopięte na ostatni guzik.",
+            "Współpracę z Piotrem i Agnieszką wspominam super :) ogromna wiedza, profesjonalizm i cudowne podejście do klienta :) polecam bardzo tych projektantów. Staną na wysokości zadania, aby spełnić marzenia klientów :) Polecam!",
+    },
+    {
+        id: 6,
+        author: "Biuro Rachunkowe Income",
+        rating: 5,
+        text:
+            "Bardzo dobre i zdecydowanie godne polecenia biuro projektowe! Przy realizacji projektu zawsze mogliśmy liczyć na trafne rady, czas na rozmowę i wyrozumiałość. Pan Piotr doskonale zrozumiał nasze potrzeby.",
+    },
+    {
+        id: 7,
+        author: "Izabela Kłosek",
+        rating: 5,
+        text:
+            "Bardzo dobre projekty, profesjonalne podejście do klienta. Od samego początku bardzo dobry kontakt. Pan Piotr jest bardzo profesjonalny, rzeczowy i merytoryczny. Zawsze służy dobrą radą i pomocą. Otwarty na pomysły oraz ich realizację. Polecam.",
+    },
+    {
+        id: 8,
+        author: "Ewa Wiśniewska",
+        rating: 5,
+        text:
+            "Pełen profesjonalizm, olbrzymia wiedza fachowa Pana Piotra, a jednocześnie wyczucie gustów i oczekiwań klienta oraz współczesnych trendów architektonicznych. Do tego kompleksowość usług i zaangażowanie. Indywidualne podejście i umiejętność współpracy z klientem na bardzo wysokim poziomie. Zdecydowanie polecam!",
+    },
+    {
+        id: 9,
+        author: "Jakub Kiliański",
+        rating: 5,
+        text:
+            "Bardzo profesjonalne studio projektowe, indywidualne podejście do potrzeb klienta, z pracy Pana Piotra i jego zespołu jestem zadowolony w 100%. Polecam",
+    },
+    {
+        id: 10,
+        author: "Mateusz Brzozowski",
+        rating: 5,
+        text:
+            "Polecam współpracę z Panem Piotrem, profesjonalne podejście oraz bardzo miła obsługa przy adaptacji projektu. Wszystkie dokumenty do pozwolenia na budowę kompleksowo załatwione przez firmę.",
     },
 ]
 
@@ -99,7 +134,10 @@ export default function ReviewsSection() {
                                         <Stars rating={review.rating} />
                                     </div>
                                     <p className="text-gray-600 leading-relaxed mb-6 flex-1">{review.text}</p>
-                                    <div className="text-xs uppercase tracking-wide text-gray-500">Opinia • Google</div>
+                                    <div className="text-xs uppercase tracking-wide text-gray-500 flex items-center gap-2">
+                                        opinia
+                                        <img src="/google.svg" alt="Google" className="h-8 w-8" />
+                                    </div>
                                 </div>
                             </div>
                         </SwiperSlide>

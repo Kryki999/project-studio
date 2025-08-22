@@ -1,14 +1,27 @@
 import type { Metadata } from 'next'
-import { GeistSans } from 'geist/font/sans'
-import { GeistMono } from 'geist/font/mono'
+import { Roboto_Condensed, Lora } from 'next/font/google'
 import './globals.css'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
+import SiteHeader from '@/components/SiteHeader'
+
+const robotoCondensed = Roboto_Condensed({
+  subsets: ['latin', 'latin-ext'],
+  display: 'swap',
+  variable: '--font-sans',
+})
+
+const lora = Lora({
+  subsets: ['latin', 'latin-ext'],
+  display: 'swap',
+  variable: '--font-serif',
+})
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'Graficad – Projektowanie i Nadzór Budowlany',
+  description:
+    'Graficad Piotr Mróz – kompleksowe projektowanie architektoniczne, nadzór budowlany, kosztorysy oraz audyty energetyczne. Olsztyn, ul. Kołobrzeska 50/lok. 109.',
   generator: 'v0.app',
 }
 
@@ -18,17 +31,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <head>
-        <style>{`
-html {
-  font-family: ${GeistSans.style.fontFamily};
-  --font-sans: ${GeistSans.variable};
-  --font-mono: ${GeistMono.variable};
-}
-        `}</style>
-      </head>
-      <body>{children}</body>
+    <html lang="pl" className={`${robotoCondensed.variable} ${lora.variable}`}>
+      <head />
+      <body>
+        <SiteHeader />
+        {children}
+      </body>
     </html>
   )
 }
