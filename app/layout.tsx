@@ -1,20 +1,20 @@
 import type { Metadata } from 'next'
 import { Roboto_Condensed, Lora } from 'next/font/google'
 import './globals.css'
-import 'swiper/css'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
+// Swiper CSS is loaded within the ReviewsSection component only on pages that use it
 import SiteHeader from '@/components/SiteHeader'
 
 const robotoCondensed = Roboto_Condensed({
   subsets: ['latin', 'latin-ext'],
   display: 'swap',
+  preload: true,
   variable: '--font-sans',
 })
 
 const lora = Lora({
   subsets: ['latin', 'latin-ext'],
   display: 'swap',
+  preload: true,
   variable: '--font-serif',
 })
 

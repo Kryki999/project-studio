@@ -19,6 +19,9 @@ export default function ProjectsIndexPage() {
                                         alt={project.title}
                                         width={1200}
                                         height={800}
+                                        sizes="(min-width: 768px) 50vw, 100vw"
+                                        loading="lazy"
+                                        quality={70}
                                         className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
                                     />
                                 </div>

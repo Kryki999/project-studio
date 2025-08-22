@@ -1,37 +1,26 @@
-"use client"
-
-import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Phone, Mail, MapPin, Menu, X, Facebook } from "lucide-react"
+import Image from "next/image"
+import { Mail } from "lucide-react"
 import Link from "next/link"
+import LazyVisible from "@/components/LazyVisible"
 import ReviewsSection from "@/components/ReviewsSection"
 
 export default function HomePage() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
-    handleScroll()
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
   return (
     <div className="min-h-screen">
       {/* Header moved to global layout */}
 
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('/minimalist-house-dusk.png')`,
-          }}
-        >
-          <div className="absolute inset-0 bg-black/30"></div>
-        </div>
+        <Image
+          src="/minimalist-house-dusk.png"
+          alt="Tło hero – minimalist house"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/30"></div>
 
         <div className="relative z-10 text-center text-white max-w-2xl px-6">
           <p className="text-sm tracking-widest mb-4 opacity-90">PROJEKTOWANIE I NADZÓR BUDOWLANY</p>
@@ -44,7 +33,7 @@ export default function HomePage() {
           >
             <a href="/projects" className="flex items-center">
               ZOBACZ PROJEKTY
-              <ArrowRight className="ml-2 h-4 w-4" />
+              <img src="/arrow-right.svg" alt="Strzałka" className="ml-2 h-4 w-4" />
             </a>
           </Button>
         </div>
@@ -65,16 +54,21 @@ export default function HomePage() {
                 Stosujemy najnowsze rozwiązania konstrukcyjne i architektoniczne. Wykonujemy kompleksowe kosztorysy
                 budowlane i instalacyjne oraz specjalistyczne audyty energetyczne.
               </p>
-              <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.facebook.com/piotr.mroz.olsztyn?locale=pl_PL" target="_blank" rel="noopener noreferrer">
                 <Button variant="default" size="lg">
-                  <Facebook className="h-4 w-4 mr-2" /> Odwiedź naszego Facebooka
+                  <img src="/facebook-square.svg" alt="Facebook" className="h-5 w-5 mr-2" /> Odwiedź naszego Facebooka
                 </Button>
               </a>
             </div>
             <div className="relative">
-              <img
+              <Image
                 src="/modern-architect-blueprints.png"
                 alt="Architect working on house plans"
+                width={1200}
+                height={800}
+                sizes="(min-width: 1024px) 600px, 100vw"
+                priority
+                quality={70}
                 className="w-full h-auto rounded-lg shadow-lg"
               />
             </div>
@@ -137,23 +131,33 @@ export default function HomePage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="group cursor-pointer">
+            <Link href="/projects/minimalist-house" prefetch={false} className="group block cursor-pointer">
               <div className="relative overflow-hidden rounded-lg mb-4">
-                <img
+                <Image
                   src="/minimalist-house-exterior.png"
                   alt="Minimalistyczny dom – realizacja Graficad"
+                  width={1200}
+                  height={800}
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  loading="lazy"
+                  quality={70}
                   className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Minimalistyczny dom rodzinny</h3>
               <p className="text-gray-600">Współczesna forma, przejrzysty układ i funkcjonalne rozwiązania.</p>
-            </div>
+            </Link>
 
-            <div className="group cursor-pointer">
+            <Link href="/projects/luxury-modern-villa" prefetch={false} className="group block cursor-pointer">
               <div className="relative overflow-hidden rounded-lg mb-4">
-                <img
+                <Image
                   src="/luxury-modern-villa.png"
                   alt="Luksusowa willa – realizacja Graficad"
+                  width={1200}
+                  height={800}
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  loading="lazy"
+                  quality={70}
                   className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
@@ -161,22 +165,24 @@ export default function HomePage() {
               <p className="text-gray-600">
                 Elegancka bryła harmonijnie połączona z otoczeniem zieleni.
               </p>
-            </div>
+            </Link>
           </div>
 
           <div className="text-center mt-12">
             <a href="/projects">
               <Button variant="default" size="lg">
                 Zobacz wszystkie projekty
-                <ArrowRight className="ml-2 h-4 w-4" />
+                <img src="/arrow-right.svg" alt="Strzałka" className="ml-2 h-4 w-4" />
               </Button>
             </a>
           </div>
         </div>
       </section>
 
-      {/* Reviews Section */}
-      <ReviewsSection />
+      {/* Reviews Section (lazy mount to reduce TBT) */}
+      <LazyVisible>
+        <ReviewsSection />
+      </LazyVisible>
 
       {/* Contact Section */}
       <section id="contact" className="py-24 bg-gray-900 text-white">
@@ -190,11 +196,11 @@ export default function HomePage() {
 
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
-                  <Phone className="h-5 w-5 text-gray-400" />
+                  <img src="/phone.svg" alt="Telefon" className="h-5 w-5 text-gray-400" />
                   <span className="text-gray-300">506 760 344</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <MapPin className="h-5 w-5 text-gray-400" />
+                  <img src="/map-pin.svg" alt="Lokalizacja" className="h-5 w-5 text-gray-400" />
                   <span className="text-gray-300">Kołobrzeska 50/lok. 109, 10-434 Olsztyn</span>
                 </div>
                 <div className="text-sm text-gray-400">Godziny: Wkrótce zamknięcie · 16:00 · Otwarcie: wt., 07:00</div>
@@ -244,7 +250,18 @@ export default function HomePage() {
               <div className="text-xl font-bold text-gray-900">GRAFICAD</div>
               <div className="text-sm text-gray-500 border-l border-gray-300 pl-3">PROJEKTOWANIE I NADZÓR BUDOWLANY</div>
             </div>
-            <div className="text-sm text-gray-500">© 2024 Graficad Piotr Mróz. Wszelkie prawa zastrzeżone.</div>
+            <div className="flex items-center gap-4">
+              <a
+                href="https://www.facebook.com/piotr.mroz.olsztyn?locale=pl_PL"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="inline-flex items-center"
+              >
+                <img src="/facebook-square.svg" alt="Facebook" className="h-6 w-6" />
+              </a>
+              <div className="text-sm text-gray-500">© 2024 Graficad Piotr Mróz. Wszelkie prawa zastrzeżone.</div>
+            </div>
           </div>
         </div>
       </footer>

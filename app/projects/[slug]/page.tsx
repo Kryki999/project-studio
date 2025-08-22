@@ -60,7 +60,16 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                     </div>
 
                     <div className="mt-12 rounded-xl overflow-hidden bg-gray-100 border border-gray-200">
-                        <Image src={project.cover} alt={project.title} width={1600} height={900} className="w-full h-auto object-cover" />
+                        <Image
+                            src={project.cover}
+                            alt={project.title}
+                            width={1600}
+                            height={900}
+                            sizes="100vw"
+                            loading="lazy"
+                            quality={70}
+                            className="w-full h-auto object-cover"
+                        />
                     </div>
                 </div>
             </section>

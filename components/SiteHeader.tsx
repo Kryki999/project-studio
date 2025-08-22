@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Button } from '@/components/ui/button'
-import { Phone, Menu, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 
 export default function SiteHeader() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -14,13 +14,14 @@ export default function SiteHeader() {
     const showSolidBackground = isHome ? (isScrolled || isMenuOpen) : true
 
     useEffect(() => {
+        if (!isHome) return
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 10)
         }
         handleScroll()
         window.addEventListener('scroll', handleScroll, { passive: true })
         return () => window.removeEventListener('scroll', handleScroll)
-    }, [])
+    }, [isHome])
 
     return (
         <header
@@ -37,8 +38,27 @@ export default function SiteHeader() {
                     </div>
 
                     <div className="flex items-center space-x-3">
+                        <a
+                            href="https://www.facebook.com/piotr.mroz.olsztyn?locale=pl_PL"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Facebook"
+                            className="inline-flex items-center"
+                        >
+                            <img src="/facebook-square.svg" alt="Facebook" className="h-7 w-7 md:h-5 md:w-5" />
+                        </a>
                         <nav className="hidden md:flex items-center space-x-8">
+                            <a
+                                href="https://www.facebook.com/piotr.mroz.olsztyn?locale=pl_PL"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Facebook"
+                                className="inline-flex items-center"
+                            >
+                                <img src="/facebook-square.svg" alt="Facebook" className="h-5 w-5" />
+                            </a>
                             <Link
+                                prefetch={false}
                                 href="/#projects"
                                 className={`text-sm transition-colors ${showSolidBackground ? 'text-gray-600 hover:text-gray-900' : 'text-white/90 hover:text-white'
                                     }`}
@@ -46,6 +66,7 @@ export default function SiteHeader() {
                                 PROJEKTY
                             </Link>
                             <Link
+                                prefetch={false}
                                 href="/#services"
                                 className={`text-sm transition-colors ${showSolidBackground ? 'text-gray-600 hover:text-gray-900' : 'text-white/90 hover:text-white'
                                     }`}
@@ -53,6 +74,7 @@ export default function SiteHeader() {
                                 USŁUGI
                             </Link>
                             <Link
+                                prefetch={false}
                                 href="/#about"
                                 className={`text-sm transition-colors ${showSolidBackground ? 'text-gray-600 hover:text-gray-900' : 'text-white/90 hover:text-white'
                                     }`}
@@ -62,7 +84,7 @@ export default function SiteHeader() {
                         </nav>
                         <a href="tel:+48506760344" className="shrink-0">
                             <Button size="sm" className="bg-gray-900 text-white hover:bg-gray-800">
-                                <Phone className="h-4 w-4 mr-2" /> ZADZWOŃ
+                                <img src="/phone.svg" alt="Telefon" className="h-4 w-4 mr-2" /> ZADZWOŃ
                             </Button>
                         </a>
                         <button
