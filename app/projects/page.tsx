@@ -7,6 +7,9 @@ export default function ProjectsIndexPage() {
         <main className="min-h-screen w-full bg-white">
             <section className="pt-28 pb-16 px-6">
                 <div className="max-w-6xl mx-auto">
+                    <nav className="mb-6 text-sm">
+                        <Link href="/" className="text-gray-500 hover:text-gray-900 transition-colors">← Wróć</Link>
+                    </nav>
                     <h1 className="text-4xl font-light text-gray-900 mb-4">Wszystkie projekty</h1>
                     <p className="text-lg text-gray-600 mb-12">Przegląd wybranych realizacji.</p>
 

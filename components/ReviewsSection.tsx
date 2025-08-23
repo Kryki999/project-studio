@@ -131,7 +131,7 @@ export default function ReviewsSection() {
                     {reviews.map((review) => (
                         <SwiperSlide key={review.id}>
                             <div className="h-full">
-                                <div className="h-[300px] sm:h-[320px] md:h-[360px] lg:h-[420px] bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                                <div className="min-h-[380px] sm:min-h-[420px] md:min-h-[460px] lg:min-h-[520px] bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col">
                                     <div className="flex items-start justify-between gap-4 mb-3">
                                         <div className="text-lg font-semibold text-gray-900">{review.author}</div>
                                         <Stars rating={review.rating} />

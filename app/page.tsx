@@ -36,7 +36,7 @@ export default function HomePage() {
 
         <div className="relative z-10 text-center text-white max-w-2xl px-6">
           <p className="text-sm tracking-widest mb-4 opacity-90">PROJEKTOWANIE I NADZÓR BUDOWLANY</p>
-          <h1 className="text-5xl md:text-6xl font-light mb-6 leading-tight">Graficad</h1>
+          <h1 className="text-5xl md:text-6xl font-light mb-6 leading-tight" style={{ fontFamily: 'var(--font-sans)' }}>GRAFICAD</h1>
           <p className="text-xl md:text-2xl font-light mb-8 opacity-90">Piotr Mróz • Olsztyn</p>
           <Button
             variant="outline"
