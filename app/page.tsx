@@ -12,14 +12,25 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center">
+        {/* Mobile hero image (sharper variant) */}
+        <Image
+          src="/minimalist-house-exterior.png"
+          alt="Tło hero – minimalist house"
+          fill
+          priority
+          sizes="100dvw"
+          quality={100}
+          className="object-cover object-center md:hidden"
+        />
+        {/* Desktop hero image */}
         <Image
           src="/minimalist-house-dusk.png"
           alt="Tło hero – minimalist house"
           fill
           priority
-          sizes="(max-width: 768px) 350vw, 100vw"
-          quality={85}
-          className="object-cover object-center"
+          sizes="100dvw"
+          quality={100}
+          className="object-cover object-center hidden md:block"
         />
         <div className="absolute inset-0 bg-black/30"></div>
 
