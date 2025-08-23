@@ -17,8 +17,9 @@ export default function HomePage() {
           alt="Tło hero – minimalist house"
           fill
           priority
-          sizes="100vw"
-          className="object-cover"
+          sizes="(max-width: 768px) 350vw, 100vw"
+          quality={85}
+          className="object-cover object-center"
         />
         <div className="absolute inset-0 bg-black/30"></div>
 

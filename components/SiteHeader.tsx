@@ -38,15 +38,6 @@ export default function SiteHeader() {
                     </div>
 
                     <div className="flex items-center space-x-3">
-                        <a
-                            href="https://www.facebook.com/piotr.mroz.olsztyn?locale=pl_PL"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Facebook"
-                            className="inline-flex items-center"
-                        >
-                            <img src="/facebook-square.svg" alt="Facebook" className="h-7 w-7 md:h-5 md:w-5" />
-                        </a>
                         <nav className="hidden md:flex items-center space-x-8">
                             <a
                                 href="https://www.facebook.com/piotr.mroz.olsztyn?locale=pl_PL"
@@ -84,7 +75,7 @@ export default function SiteHeader() {
                         </nav>
                         <a href="tel:+48506760344" className="shrink-0">
                             <Button size="sm" className="bg-gray-900 text-white hover:bg-gray-800">
-                                <img src="/phone.svg" alt="Telefon" className="h-4 w-4 mr-2" /> ZADZWOŃ
+                                <img src="/phone.svg" alt="Telefon" className="h-4 w-4 mr-2 invert" /> ZADZWOŃ
                             </Button>
                         </a>
                         <button
@@ -113,6 +104,17 @@ export default function SiteHeader() {
                         <Link href="/#about" className="block text-gray-700 hover:text-gray-900" onClick={() => setIsMenuOpen(false)}>
                             O NAS
                         </Link>
+                        <a
+                            href="https://www.facebook.com/piotr.mroz.olsztyn?locale=pl_PL"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Facebook"
+                            className="inline-flex items-center text-gray-700 hover:text-gray-900"
+                            onClick={() => setIsMenuOpen(false)}
+                        >
+                            <img src="/facebook-square.svg" alt="Facebook" className="h-5 w-5 mr-2" />
+                            Facebook
+                        </a>
                     </div>
                 </div>
             ) : null}

@@ -31,9 +31,9 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pl" className={`${robotoCondensed.variable} ${lora.variable}`}>
+    <html lang="pl" className={`${robotoCondensed.variable} ${lora.variable} overflow-x-hidden`}>
       <head />
-      <body>
+      <body className="overflow-x-hidden">
         <SiteHeader />
         {children}
       </body>
