@@ -3,6 +3,8 @@ import { Roboto_Condensed, Lora } from 'next/font/google'
 import './globals.css'
 // Swiper CSS is loaded within the ReviewsSection component only on pages that use it
 import SiteHeader from '@/components/SiteHeader'
+import CookieConsentBanner from '@/components/CookieConsentBanner'
+import SiteFooter from '@/components/SiteFooter'
 
 const robotoCondensed = Roboto_Condensed({
   subsets: ['latin', 'latin-ext'],
@@ -36,6 +38,8 @@ export default function RootLayout({
       <body className="overflow-x-hidden">
         <SiteHeader />
         {children}
+        <SiteFooter />
+        <CookieConsentBanner />
       </body>
     </html>
   )
