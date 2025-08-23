@@ -45,7 +45,7 @@ export default function HomePage() {
           >
             <a href="/projects" className="flex items-center">
               ZOBACZ PROJEKTY
-              <img src="/arrow-right.svg" alt="Strzałka" className="ml-2 h-4 w-4" />
+              <img src="/arrow-right.svg" alt="Strzałka" className="ml-2 h-4 w-4 invert" />
             </a>
           </Button>
         </div>
@@ -184,7 +184,7 @@ export default function HomePage() {
             <a href="/projects">
               <Button variant="default" size="lg">
                 Zobacz wszystkie projekty
-                <img src="/arrow-right.svg" alt="Strzałka" className="ml-2 h-4 w-4" />
+                <img src="/arrow-right.svg" alt="Strzałka" className="ml-2 h-4 w-4 invert" />
               </Button>
             </a>
           </div>
