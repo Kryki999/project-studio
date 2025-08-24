@@ -105,7 +105,7 @@ function Stars({ rating }: { rating: number }) {
 
 export default function ReviewsSection() {
     return (
-        <section id="reviews" className="py-24 bg-gray-50">
+        <section id="reviews" className="py-24">
             <div className="max-w-6xl mx-auto px-6">
                 <div className="text-center mb-12">
                     <h2 className="text-4xl font-light text-gray-900 mb-4">Opinie Klientów</h2>

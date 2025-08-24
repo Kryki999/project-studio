@@ -4,7 +4,7 @@ import { projects } from '@/lib/projects'
 
 export default function ProjectsIndexPage() {
     return (
-        <main className="min-h-screen w-full bg-white">
+        <main className="min-h-screen w-full">
             <section className="pt-28 pb-16 px-6">
                 <div className="max-w-6xl mx-auto">
                     <nav className="mb-6 text-sm">

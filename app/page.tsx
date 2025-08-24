@@ -53,7 +53,7 @@ export default function HomePage() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-24 bg-white">
+      <section id="about" className="py-24">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
@@ -90,7 +90,7 @@ export default function HomePage() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-24 bg-gray-50">
+      <section id="services" className="py-24">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-light text-gray-900 mb-4">Nasze usługi</h2>
@@ -134,7 +134,7 @@ export default function HomePage() {
       </section>
 
       {/* Projects Preview */}
-      <section id="projects" className="py-24 bg-white">
+      <section id="projects" className="py-24">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-light text-gray-900 mb-4">Wybrane realizacje</h2>

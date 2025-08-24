@@ -36,6 +36,13 @@ export default function RootLayout({
     <html lang="pl" className={`${robotoCondensed.variable} ${lora.variable} overflow-x-hidden`}>
       <head />
       <body className="overflow-x-hidden">
+        <div
+          className="fixed inset-0 -z-10 pointer-events-none dark:hidden"
+          style={{
+            background:
+              'radial-gradient(circle at 30% 70%, rgba(173, 216, 230, 0.35), transparent 60%), radial-gradient(circle at 70% 30%, rgba(255, 182, 193, 0.4), transparent 60%) rgb(254, 252, 255)',
+          }}
+        />
         <SiteHeader />
         {children}
         <SiteFooter />

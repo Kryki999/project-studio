@@ -12,7 +12,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
     if (!project) {
         return (
-            <main className="min-h-screen w-full bg-white">
+            <main className="min-h-screen w-full">
                 <div className="max-w-6xl mx-auto px-6 pt-28 pb-16">
                     <h1 className="text-3xl font-semibold mb-4">Projekt nie znaleziony</h1>
                     <Link href="/projects" className="text-blue-600 hover:underline">Wróć do projektów</Link>
@@ -22,7 +22,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
     }
 
     return (
-        <main className="min-h-screen w-full bg-white">
+        <main className="min-h-screen w-full">
             <section className="pt-28 pb-16 px-6">
                 <div className="max-w-6xl mx-auto">
                     <nav className="mb-6 text-sm">
