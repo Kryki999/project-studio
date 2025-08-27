@@ -108,7 +108,7 @@ export default function ReviewsSection() {
         <section id="reviews" className="py-24">
             <div className="max-w-6xl mx-auto px-6">
                 <div className="text-center mb-12">
-                    <h2 className="text-4xl font-light text-gray-900 mb-4">Opinie Klientów</h2>
+                    <h2 className="text-4xl font-light text-gray-900 mb-4">OPINIE KLIENTÓW</h2>
                     <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                         Co mówią o nas klienci, z którymi tworzymy wyjątkowe przestrzenie
                     </p>

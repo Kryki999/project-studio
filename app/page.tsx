@@ -57,7 +57,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-4xl font-light text-gray-900 mb-6">O firmie Graficad</h2>
+              <h2 className="text-4xl font-light text-gray-900 mb-6">PROJEKTOWANIE I NADZÓR BUDOWLANY</h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                 Wychodząc naprzeciw oczekiwaniom naszych klientów, stworzyliśmy biuro, w którym w jednym miejscu można
                 zaprojektować i wycenić budynek według indywidualnych wymagań inwestora. Łączymy nowoczesne style
@@ -93,7 +93,7 @@ export default function HomePage() {
       <section id="services" className="py-24">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-light text-gray-900 mb-4">Nasze usługi</h2>
+            <h2 className="text-4xl font-light text-gray-900 mb-4">NASZE USŁUGI</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Projektowanie, nadzór budowlany, kosztorysy oraz audyty energetyczne
             </p>
@@ -105,9 +105,6 @@ export default function HomePage() {
               <p className="text-gray-600 mb-6">
                 Koncepcje i dokumentacja projektowa z naciskiem na funkcjonalność i estetykę.
               </p>
-              <Button variant="outline" size="sm">
-                Dowiedz się więcej
-              </Button>
             </div>
 
             <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
@@ -115,9 +112,6 @@ export default function HomePage() {
               <p className="text-gray-600 mb-6">
                 Prowadzenie inwestycji i kontrola jakości prac, rzetelne kosztorysy budowlane i instalacyjne.
               </p>
-              <Button variant="outline" size="sm">
-                Dowiedz się więcej
-              </Button>
             </div>
 
             <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
@@ -125,9 +119,6 @@ export default function HomePage() {
               <p className="text-gray-600 mb-6">
                 Optymalizacja efektywności energetycznej i dobór nowoczesnych rozwiązań technicznych.
               </p>
-              <Button variant="outline" size="sm">
-                Dowiedz się więcej
-              </Button>
             </div>
           </div>
         </div>
@@ -137,7 +128,7 @@ export default function HomePage() {
       <section id="projects" className="py-24">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-light text-gray-900 mb-4">Wybrane realizacje</h2>
+            <h2 className="text-4xl font-light text-gray-900 mb-4">WYBRANE REALIZACJE</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Przegląd projektów odzwierciedlających nasze podejście i standard wykonania
             </p>
@@ -202,7 +193,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16">
             <div>
-              <h2 className="text-4xl font-light mb-6">Porozmawiajmy o Twojej inwestycji</h2>
+              <h2 className="text-4xl font-light mb-6">POROZMAWIJMY O TWOJEJ INWESTYCJI</h2>
               <p className="text-lg text-gray-300 mb-8 leading-relaxed">
                 Skontaktuj się z nami, aby omówić zakres prac i harmonogram. Odpowiemy na wszystkie pytania i doradzimy najlepsze rozwiązania.
               </p>
