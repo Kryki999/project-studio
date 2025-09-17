@@ -64,12 +64,12 @@ export default function HomePage() {
               <h2 className="text-4xl font-light text-gray-900 mb-6">PROJEKTOWANIE I NADZÓR BUDOWLANY</h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                 Wychodząc naprzeciw oczekiwaniom naszych klientów, stworzyliśmy biuro, w którym w jednym miejscu można
-                zaprojektować i wycenić budynek według indywidualnych wymagań inwestora. Łączymy nowoczesne style
+                <strong> zaprojektować i wycenić budynek</strong> według indywidualnych wymagań inwestora. Łączymy nowoczesne style
                 architektoniczne z klasycznymi formami oraz renowacjami obiektów zabytkowych.
               </p>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Stosujemy najnowsze rozwiązania konstrukcyjne i architektoniczne. Wykonujemy kompleksowe kosztorysy
-                budowlane i instalacyjne oraz specjalistyczne audyty energetyczne.
+                Stosujemy najnowsze rozwiązania konstrukcyjne i architektoniczne. Wykonujemy kompleksowe <strong> kosztorysy
+                  budowlane i instalacyjne</strong> oraz specjalistyczne <strong>audyty energetyczne</strong>.
               </p>
               <a href="https://www.facebook.com/piotr.mroz.olsztyn?locale=pl_PL" target="_blank" rel="noopener noreferrer">
                 <Button variant="default" size="lg">
