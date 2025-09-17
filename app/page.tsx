@@ -4,7 +4,11 @@ import { Mail } from "lucide-react"
 import Link from "next/link"
 import LazyVisible from "@/components/LazyVisible"
 import ReviewsSection from "@/components/ReviewsSection"
-
+import ServiceCard from "@/components/ServiceCard";
+import designAnim from "@/public/animations/design.json";
+import constructionAnim from "@/public/animations/construction.json";
+import energyAnim from "@/public/animations/energy.json";
+import { projects } from "@/lib/projects";
 export default function HomePage() {
   return (
     <div className="min-h-screen">
@@ -100,26 +104,21 @@ export default function HomePage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Projektowanie architektoniczne</h3>
-              <p className="text-gray-600 mb-6">
-                Koncepcje i dokumentacja projektowa z naciskiem na funkcjonalność i estetykę.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Nadzór budowlany i kosztorysy</h3>
-              <p className="text-gray-600 mb-6">
-                Prowadzenie inwestycji i kontrola jakości prac, rzetelne kosztorysy budowlane i instalacyjne.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Audyty energetyczne i doradztwo</h3>
-              <p className="text-gray-600 mb-6">
-                Optymalizacja efektywności energetycznej i dobór nowoczesnych rozwiązań technicznych.
-              </p>
-            </div>
+            <ServiceCard
+              title="Projektowanie architektoniczne"
+              description="Koncepcje i dokumentacja projektowa z naciskiem na funkcjonalność i estetykę."
+              animation={designAnim}
+            />
+            <ServiceCard
+              title="Nadzór budowlany i kosztorysy"
+              description="Prowadzenie inwestycji i kontrola jakości prac, rzetelne kosztorysy budowlane i instalacyjne."
+              animation={constructionAnim}
+            />
+            <ServiceCard
+              title="Audyty energetyczne i doradztwo"
+              description="Optymalizacja efektywności energetycznej i dobór nowoczesnych rozwiązań technicznych."
+              animation={energyAnim}
+            />
           </div>
         </div>
       </section>
@@ -134,42 +133,31 @@ export default function HomePage() {
             </p>
           </div>
 
+          {/* Tutaj mapujemy projekty */}
           <div className="grid md:grid-cols-2 gap-8">
-            <Link href="/projects/minimalist-house" prefetch={false} className="group block cursor-pointer">
-              <div className="relative overflow-hidden rounded-lg mb-4">
-                <Image
-                  src="/minimalist-house-exterior.png"
-                  alt="Minimalistyczny dom – realizacja Graficad"
-                  width={1200}
-                  height={800}
-                  sizes="(min-width: 768px) 50vw, 100vw"
-                  loading="lazy"
-                  quality={70}
-                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Minimalistyczny dom rodzinny</h3>
-              <p className="text-gray-600">Współczesna forma, przejrzysty układ i funkcjonalne rozwiązania.</p>
-            </Link>
-
-            <Link href="/projects/luxury-modern-villa" prefetch={false} className="group block cursor-pointer">
-              <div className="relative overflow-hidden rounded-lg mb-4">
-                <Image
-                  src="/luxury-modern-villa.png"
-                  alt="Luksusowa willa – realizacja Graficad"
-                  width={1200}
-                  height={800}
-                  sizes="(min-width: 768px) 50vw, 100vw"
-                  loading="lazy"
-                  quality={70}
-                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Luksusowa willa ogrodowa</h3>
-              <p className="text-gray-600">
-                Elegancka bryła harmonijnie połączona z otoczeniem zieleni.
-              </p>
-            </Link>
+            {projects.slice(0, 6).map((project) => (
+              <Link
+                key={project.slug}
+                href={`/projects/${project.slug}`}
+                prefetch={false}
+                className="group block cursor-pointer"
+              >
+                <div className="relative overflow-hidden rounded-lg mb-4">
+                  <Image
+                    src={project.images[0]}
+                    alt={project.title}
+                    width={1200}
+                    height={800}
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    loading="lazy"
+                    quality={70}
+                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">{project.title}</h3>
+                <p className="text-gray-600">{project.summary}</p>
+              </Link>
+            ))}
           </div>
 
           <div className="text-center mt-12">

@@ -47,29 +47,26 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                                 </>
                             ) : null}
                         </div>
-                        <aside className="space-y-4">
-                            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-                                <h4 className="font-semibold mb-2">Rola</h4>
-                                <p className="text-gray-700">{project.role}</p>
-                            </div>
-                            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-                                <h4 className="font-semibold mb-2">Narzędzia</h4>
-                                <p className="text-gray-700">{project.tools.join(', ')}</p>
-                            </div>
-                        </aside>
                     </div>
 
-                    <div className="mt-12 rounded-xl overflow-hidden bg-gray-100 border border-gray-200">
-                        <Image
-                            src={project.cover}
-                            alt={project.title}
-                            width={1600}
-                            height={900}
-                            sizes="100vw"
-                            loading="lazy"
-                            quality={70}
-                            className="w-full h-auto object-cover"
-                        />
+                    <div className="mt-12 grid md:grid-cols-2 gap-6">
+                        {project.images.map((src, idx) => (
+                            <div
+                                key={idx}
+                                className="rounded-xl overflow-hidden bg-gray-100 border border-gray-200"
+                            >
+                                <Image
+                                    src={src}
+                                    alt={`${project.title} – zdjęcie ${idx + 1}`}
+                                    width={1600}
+                                    height={900}
+                                    sizes="100vw"
+                                    loading="lazy"
+                                    quality={70}
+                                    className="w-full h-auto object-cover"
+                                />
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>

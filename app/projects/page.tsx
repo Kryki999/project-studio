@@ -18,14 +18,14 @@ export default function ProjectsIndexPage() {
                             <Link key={project.slug} href={`/projects/${project.slug}`} className="group block">
                                 <div className="relative overflow-hidden rounded-lg mb-4 border border-gray-200 bg-gray-50">
                                     <Image
-                                        src={project.cover}
+                                        src={project.images[0]}
                                         alt={project.title}
                                         width={1200}
                                         height={800}
                                         sizes="(min-width: 768px) 50vw, 100vw"
                                         loading="lazy"
                                         quality={70}
-                                        className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
+                                        className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                                     />
                                 </div>
                                 <h3 className="text-xl font-semibold text-gray-900 mb-2">{project.title}</h3>
