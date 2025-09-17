@@ -31,7 +31,7 @@ export const projects = [
         date: '2023',
         images: ['/dom2.jpeg'], // tylko jedno zdjęcie
         summary:
-            'Nowoczesny dom parterowy z wkomponowanym garażem, prostą bryłą i tarasem otwierającym się na ogród.',
+            'Nowoczesny dom z wkomponowanym garażem, prostą bryłą i tarasem otwierającym się na ogród.',
         goals: [
             'Układ funkcjonalny dostosowany do działki o średniej powierzchni',
             'Integracja części dziennej z tarasem i ogrodem',
