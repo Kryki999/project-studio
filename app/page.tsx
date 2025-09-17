@@ -181,7 +181,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16">
             <div>
-              <h2 className="text-4xl font-light mb-6">POROZMAWIJMY O TWOJEJ INWESTYCJI</h2>
+              <h2 className="text-4xl font-light mb-6">POROZMAWIAJMY O TWOJEJ INWESTYCJI</h2>
               <p className="text-lg text-gray-300 mb-8 leading-relaxed">
                 Skontaktuj się z nami, aby omówić zakres prac i harmonogram. Odpowiemy na wszystkie pytania i doradzimy najlepsze rozwiązania.
               </p>
