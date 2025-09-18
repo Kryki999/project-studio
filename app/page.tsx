@@ -9,6 +9,8 @@ import designAnim from "@/public/animations/design.json";
 import constructionAnim from "@/public/animations/construction.json";
 import energyAnim from "@/public/animations/energy.json";
 import { projects } from "@/lib/projects";
+import emailjs from "emailjs-com";
+import ContactForm from "@/components/ContactForm";
 export default function HomePage() {
   return (
     <div className="min-h-screen">
@@ -180,6 +182,7 @@ export default function HomePage() {
       <section id="contact" className="py-24 bg-gray-900 text-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16">
+            {/* Informacje kontaktowe */}
             <div>
               <h2 className="text-4xl font-light mb-6">POROZMAWIAJMY O TWOJEJ INWESTYCJI</h2>
               <p className="text-lg text-gray-300 mb-8 leading-relaxed">
@@ -207,36 +210,9 @@ export default function HomePage() {
               </div>
             </div>
 
+            {/* Formularz kontaktowy */}
             <div className="bg-gray-800 p-8 rounded-lg">
-              <form className="space-y-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">Imię i nazwisko</label>
-                  <input
-                    type="text"
-                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-white transition-colors"
-                    placeholder="Wpisz swoje imię i nazwisko"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">E-mail</label>
-                  <input
-                    type="email"
-                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-white transition-colors"
-                    placeholder="twoj@email.com"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">Opis inwestycji</label>
-                  <textarea
-                    rows={4}
-                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-white transition-colors resize-none"
-                    placeholder="Opisz krótko zakres i oczekiwania..."
-                  ></textarea>
-                </div>
-                <Button className="w-full bg-white text-gray-900 hover:bg-gray-100" size="lg">
-                  Wyślij wiadomość
-                </Button>
-              </form>
+              <ContactForm />
             </div>
           </div>
         </div>
