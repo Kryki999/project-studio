@@ -75,7 +75,7 @@ export default function SiteHeader() {
                         </nav>
                         <a href="tel:+48506760344" className="shrink-0">
                             <Button size="sm" className="bg-gray-900 text-white hover:bg-gray-800">
-                                <img src="/phone.svg" alt="Telefon" className="h-4 w-4 mr-2 invert" /> ZADZWOŃ
+                                <img src="/phone.svg" alt="Telefon" className="h-4 w-4 mr-2" /> ZADZWOŃ
                             </Button>
                         </a>
                         <button
