@@ -195,7 +195,15 @@ export default function HomePage() {
                   <img src="/map-pin.svg" alt="Lokalizacja" className="h-5 w-5 text-gray-400" />
                   <span className="text-gray-300">Kołobrzeska 50/lok. 109, 10-434 Olsztyn</span>
                 </div>
-                <div className="text-sm text-gray-400">Godziny: Wkrótce zamknięcie · 16:00 · Otwarcie: wt., 07:00</div>
+                <div className="flex items-center space-x-3">
+                  <img src="/mail.svg" alt="Email" className="h-5 w-5 text-gray-400" />
+                  <a
+                    href="mailto:graficad@o2.pl"
+                    className="text-gray-300 hover:text-white transition"
+                  >
+                    graficad@o2.pl
+                  </a>
+                </div>
               </div>
             </div>
 
