@@ -3,11 +3,11 @@ import Image from 'next/image'
 import { getProjectBySlug } from '@/lib/projects'
 
 type PageProps = {
-    params: Promise<{ slug: string }>
+    params: { slug: string }
 }
 
 export default async function ProjectDetailPage({ params }: PageProps) {
-    const { slug } = await params
+    const { slug } = params   // ← bez await
     const project = getProjectBySlug(slug)
 
     if (!project) {
@@ -15,7 +15,9 @@ export default async function ProjectDetailPage({ params }: PageProps) {
             <main className="min-h-screen w-full">
                 <div className="max-w-6xl mx-auto px-6 pt-28 pb-16">
                     <h1 className="text-3xl font-semibold mb-4">Projekt nie znaleziony</h1>
-                    <Link href="/projects" className="text-blue-600 hover:underline">Wróć do projektów</Link>
+                    <Link href="/projects" className="text-blue-600 hover:underline">
+                        Wróć do projektów
+                    </Link>
                 </div>
             </main>
         )
@@ -26,7 +28,9 @@ export default async function ProjectDetailPage({ params }: PageProps) {
             <section className="pt-28 pb-16 px-6">
                 <div className="max-w-6xl mx-auto">
                     <nav className="mb-6 text-sm">
-                        <Link href="/projects" className="text-gray-500 hover:text-gray-900 transition-colors">← Wróć</Link>
+                        <Link href="/projects" className="text-gray-500 hover:text-gray-900 transition-colors">
+                            ← Wróć
+                        </Link>
                     </nav>
                     <h1 className="text-4xl sm:text-5xl font-light mb-2">{project.title}</h1>
                     <p className="text-gray-500">{project.date}</p>
@@ -51,10 +55,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
                     <div className="mt-12 grid md:grid-cols-2 gap-6">
                         {project.images.map((src, idx) => (
-                            <div
-                                key={idx}
-                                className="rounded-xl overflow-hidden bg-gray-100 border border-gray-200"
-                            >
+                            <div key={idx} className="rounded-xl overflow-hidden bg-gray-100 border border-gray-200">
                                 <Image
                                     src={src}
                                     alt={`${project.title} – zdjęcie ${idx + 1}`}
@@ -73,4 +74,3 @@ export default async function ProjectDetailPage({ params }: PageProps) {
         </main>
     )
 }
-
