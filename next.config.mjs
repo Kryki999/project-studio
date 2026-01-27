@@ -6,7 +6,7 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  swcMinify: true,
+
   modularizeImports: {
     "lucide-react": {
       transform: "lucide-react/icons/{{member}}",
