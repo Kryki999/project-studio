@@ -11,6 +11,20 @@ import energyAnim from "@/public/animations/energy.json";
 import { projects } from "@/lib/projects";
 import emailjs from "emailjs-com";
 import ContactForm from "@/components/ContactForm";
+import LightboxGallery from "@/components/LightboxGallery";
+const images = [
+  { src: "/referencja1.jpeg", alt: "Referencja 1" },
+  { src: "/referencja2.jpeg", alt: "Referencja 2" },
+  { src: "/referencja3.jpeg", alt: "Referencja 3" },
+  { src: "/referencja4.jpg", alt: "Referencja 4" },
+  { src: "/referencja5.jpeg", alt: "Referencja 5" },
+  { src: "/referencja6.jpeg", alt: "Referencja 6" },
+  { src: "/referencja7.jpeg", alt: "Referencja 7" },
+  { src: "/referencja8.jpeg", alt: "Referencja 8" },
+  { src: "/referencja9.jpeg", alt: "Referencja 9" },
+  { src: "/referencja10.jpeg", alt: "Referencja 10" },
+  { src: "/referencja11.jpeg", alt: "Referencja 11" },
+]
 export default function HomePage() {
   return (
     <div className="min-h-screen">
@@ -172,6 +186,23 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      {/* References Section */}
+<section id="references" className="py-24">
+  <div className="max-w-6xl mx-auto px-6">
+    <div className="text-center mb-16">
+      <h2 className="text-4xl font-light text-gray-900 mb-4">REFERENCJE</h2>
+      <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        Zaufali nam liczni klienci — poniżej wybrane referencje i rekomendacje.
+      </p>
+    </div>
+
+    {/* Galeria referencji */}
+    <div className="w-full">
+      <LightboxGallery images={images} />
+    </div>
+  </div>
+</section>
+
 
       {/* Reviews Section (lazy mount to reduce TBT) */}
       <LazyVisible>
