@@ -52,23 +52,26 @@ export default function HomePage() {
           quality={100}
           className="object-cover object-center hidden md:block"
         />
-        <div className="absolute inset-0 bg-black/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/50"></div>
 
         <div className="relative z-10 text-center text-white max-w-2xl px-6">
-          <p className="text-sm tracking-widest mb-4 opacity-90">PROJEKTOWANIE I NADZÓR BUDOWLANY</p>
-          <h1 className="text-5xl md:text-6xl font-light mb-6 leading-tight" style={{ fontFamily: 'var(--font-sans)' }}>GRAFICAD</h1>
-          <p className="text-xl md:text-2xl font-light mb-8 opacity-90">Piotr Mróz • Olsztyn</p>
-          <Button
-            asChild
-            variant="outline"
-            size="lg"
-            className="bg-transparent border-white text-white hover:bg-white hover:text-gray-900 transition-all duration-300"
-          >
-            <Link href="/#projects" className="flex items-center">
-              ZOBACZ PROJEKTY
-              <img src="/arrow-right.svg" alt="Strzałka" className="ml-2 h-4 w-4 invert" />
-            </Link>
-          </Button>
+          {/* Frosted glass panel behind CTA content */}
+          <div className="bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 px-8 py-12 md:px-12 md:py-16 shadow-2xl">
+            <p className="text-sm tracking-[0.3em] mb-4 opacity-80 uppercase">Projektowanie i Nadzór Budowlany</p>
+            <h1 className="text-5xl md:text-7xl font-light mb-6 leading-tight" style={{ fontFamily: 'var(--font-sans)' }}>GRAFICAD</h1>
+            <p className="text-xl md:text-2xl font-light mb-10 opacity-80">Piotr Mróz • Olsztyn</p>
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="bg-white/10 backdrop-blur-sm border-white/25 text-white hover:bg-white hover:text-gray-900 transition-all duration-500 px-8 py-3"
+            >
+              <Link href="/#projects" className="flex items-center">
+                ZOBACZ PROJEKTY
+                <img src="/arrow-right.svg" alt="Strzałka" className="ml-2 h-4 w-4 invert" />
+              </Link>
+            </Button>
+          </div>
         </div>
       </section>
 
@@ -158,20 +161,24 @@ export default function HomePage() {
                 prefetch={false}
                 className="group block cursor-pointer"
               >
-                <div className="relative overflow-hidden rounded-lg mb-4">
-                  <Image
-                    src={project.images[0]}
-                    alt={project.title}
-                    width={1200}
-                    height={800}
-                    sizes="(min-width: 768px) 50vw, 100vw"
-                    loading="lazy"
-                    quality={70}
-                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+                <div className="bg-white/60 backdrop-blur-sm rounded-xl border border-white/40 p-3 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 ease-out">
+                  <div className="relative overflow-hidden rounded-lg mb-4">
+                    <Image
+                      src={project.images[0]}
+                      alt={project.title}
+                      width={1200}
+                      height={800}
+                      sizes="(min-width: 768px) 50vw, 100vw"
+                      loading="lazy"
+                      quality={70}
+                      className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="px-2 pb-2">
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">{project.title}</h3>
+                    <p className="text-gray-600">{project.summary}</p>
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{project.title}</h3>
-                <p className="text-gray-600">{project.summary}</p>
               </Link>
             ))}
           </div>
@@ -187,21 +194,21 @@ export default function HomePage() {
         </div>
       </section>
       {/* References Section */}
-<section id="references" className="py-24">
-  <div className="max-w-6xl mx-auto px-6">
-    <div className="text-center mb-16">
-      <h2 className="text-4xl font-light text-gray-900 mb-4">REFERENCJE</h2>
-      <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-        Zaufali nam liczni klienci — poniżej wybrane referencje i rekomendacje.
-      </p>
-    </div>
+      <section id="references" className="py-24">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-light text-gray-900 mb-4">REFERENCJE</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Zaufali nam liczni klienci — poniżej wybrane referencje i rekomendacje.
+            </p>
+          </div>
 
-    {/* Galeria referencji */}
-    <div className="w-full">
-      <LightboxGallery images={images} />
-    </div>
-  </div>
-</section>
+          {/* Galeria referencji */}
+          <div className="w-full">
+            <LightboxGallery images={images} />
+          </div>
+        </div>
+      </section>
 
 
       {/* Reviews Section (lazy mount to reduce TBT) */}
@@ -210,8 +217,13 @@ export default function HomePage() {
       </LazyVisible>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 bg-gray-900 text-white">
-        <div className="max-w-6xl mx-auto px-6">
+      <section id="contact" className="relative py-24 bg-gray-900 text-white overflow-hidden">
+        {/* Subtle ambient glow behind the section */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
+        </div>
+        <div className="relative max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16">
             {/* Informacje kontaktowe */}
             <div>
@@ -220,20 +232,20 @@ export default function HomePage() {
                 Skontaktuj się z nami, aby omówić zakres prac i harmonogram. Odpowiemy na wszystkie pytania i doradzimy najlepsze rozwiązania.
               </p>
 
-              <div className="space-y-4">
+              <div className="space-y-5">
                 <div className="flex items-center space-x-3">
-                  <img src="/phone.svg" alt="Telefon" className="h-5 w-5 text-gray-400" />
+                  <img src="/phone.svg" alt="Telefon" className="h-5 w-5 opacity-60" />
                   <span className="text-gray-300">506 760 344</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <img src="/map-pin.svg" alt="Lokalizacja" className="h-5 w-5 text-gray-400" />
+                  <img src="/map-pin.svg" alt="Lokalizacja" className="h-5 w-5 opacity-60" />
                   <span className="text-gray-300">Kołobrzeska 50/lok. 109, 10-434 Olsztyn</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <img src="/mail.svg" alt="Email" className="h-5 w-5 text-gray-400" />
+                  <img src="/mail.svg" alt="Email" className="h-5 w-5 opacity-60" />
                   <a
                     href="mailto:graficad@o2.pl"
-                    className="text-gray-300 hover:text-white transition"
+                    className="text-gray-300 hover:text-white transition-colors duration-300"
                   >
                     graficad@o2.pl
                   </a>
@@ -241,8 +253,8 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Formularz kontaktowy */}
-            <div className="bg-gray-800 p-8 rounded-lg">
+            {/* Formularz kontaktowy – Frosted Glass */}
+            <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 md:p-10 rounded-2xl shadow-2xl">
               <ContactForm />
             </div>
           </div>

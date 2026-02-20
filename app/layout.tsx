@@ -5,6 +5,7 @@ import './globals.css'
 import SiteHeader from '@/components/SiteHeader'
 import CookieConsentBanner from '@/components/CookieConsentBanner'
 import SiteFooter from '@/components/SiteFooter'
+import { Toaster } from 'sonner'
 
 const robotoCondensed = Roboto_Condensed({
   subsets: ['latin', 'latin-ext'],
@@ -47,6 +48,7 @@ export default function RootLayout({
         {children}
         <SiteFooter />
         <CookieConsentBanner />
+        <Toaster position="top-center" richColors closeButton />
       </body>
     </html>
   )

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { getProjectBySlug, projects } from '@/lib/projects'
+import BackButton from '@/components/BackButton'
 
 export async function generateStaticParams() {
     return projects.map((project) => ({
@@ -34,9 +35,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
             <section className="pt-28 pb-16 px-6">
                 <div className="max-w-6xl mx-auto">
                     <nav className="mb-6 text-sm">
-                        <Link href="/projects" className="text-gray-500 hover:text-gray-900 transition-colors">
-                            ← Wróć
-                        </Link>
+                        <BackButton fallbackHref="/projects" />
                     </nav>
                     <h1 className="text-4xl sm:text-5xl font-light mb-2">{project.title}</h1>
                     <p className="text-gray-500">{project.date}</p>
@@ -61,7 +60,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
                     <div className="mt-12 grid md:grid-cols-2 gap-6">
                         {project.images.map((src, idx) => (
-                            <div key={idx} className="rounded-xl overflow-hidden bg-gray-100 border border-gray-200">
+                            <div key={idx} className="rounded-xl overflow-hidden bg-white/60 backdrop-blur-sm border border-white/40 shadow-sm hover:shadow-lg transition-shadow duration-500">
                                 <Image
                                     src={src}
                                     alt={`${project.title} – zdjęcie ${idx + 1}`}
