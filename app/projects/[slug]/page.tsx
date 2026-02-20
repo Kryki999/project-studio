@@ -1,13 +1,19 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { getProjectBySlug } from '@/lib/projects'
+import { getProjectBySlug, projects } from '@/lib/projects'
+
+export async function generateStaticParams() {
+    return projects.map((project) => ({
+        slug: project.slug,
+    }))
+}
 
 type PageProps = {
-    params: { slug: string }
+    params: Promise<{ slug: string }>
 }
 
 export default async function ProjectDetailPage({ params }: PageProps) {
-    const { slug } = params   // ← bez await
+    const { slug } = await params
     const project = getProjectBySlug(slug)
 
     if (!project) {

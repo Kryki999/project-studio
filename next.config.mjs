@@ -6,7 +6,6 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  swcMinify: true,
 
   images: {
     formats: ["image/avif", "image/webp"],
