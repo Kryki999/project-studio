@@ -17,7 +17,7 @@ export default function SiteFooter() {
                         >
                             <img src="/facebook-square.svg" alt="Facebook" className="h-6 w-6" />
                         </a>
-                        <div className="text-sm text-gray-500">© 2024 Graficad Piotr Mróz. Wszelkie prawa zastrzeżone.</div>
+                        <div className="text-sm text-gray-500">© 2026 Graficad Piotr Mróz. Wszelkie prawa zastrzeżone.</div>
                     </div>
                 </div>
             </div>
