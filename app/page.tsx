@@ -9,7 +9,6 @@ import designAnim from "@/public/animations/design.json";
 import constructionAnim from "@/public/animations/construction.json";
 import energyAnim from "@/public/animations/energy.json";
 import { projects } from "@/lib/projects";
-import emailjs from "emailjs-com";
 import ContactForm from "@/components/ContactForm";
 import LightboxGallery from "@/components/LightboxGallery";
 const images = [
